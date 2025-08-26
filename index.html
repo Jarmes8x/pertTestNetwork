@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบสอบออนไลน์ - Data Communication</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>ระบบสอบออนไลน์</h1>
+            <h2>Data Communication & Networking</h2>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <button id="startExam" class="btn btn-primary">เริ่มสอบ</button>
+            <button id="reviewMode" class="btn btn-secondary">โหมดทบทวน</button>
+            <button id="resetExam" class="btn btn-danger">รีเซ็ต</button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="screen active">
+                <div class="welcome-content">
+                    <h3>ยินดีต้อนรับสู่ระบบสอบออนไลน์</h3>
+                    <div class="exam-info">
+                        <h4>ข้อมูลการสอบ:</h4>
+                        <ul>
+                            <li>จำนวนข้อสอบ: 50 ข้อ</li>
+                            <li>เวลาในการสอบ: 60 นาที</li>
+                            <li>คะแนนผ่าน: 70%</li>
+                            <li>หัวข้อ: Data Communication Components, Internet Models, Physical Layer, Multiplexing, Transmission Media</li>
+                        </ul>
+                    </div>
+                    <button id="beginExam" class="btn btn-primary btn-large">เริ่มทำข้อสอบ</button>
+                </div>
+            </div>
+
+            <!-- Exam Screen -->
+            <div id="examScreen" class="screen">
+                <div class="exam-header">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <span id="questionCounter">ข้อ 1 จาก 50</span>
+                    </div>
+                    <div class="timer">
+                        <span id="timeRemaining">60:00</span>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <div class="question-number" id="questionNumber">ข้อที่ 1</div>
+                    <div class="question-text" id="questionText"></div>
+                    <div class="choices" id="choicesContainer"></div>
+                </div>
+
+                <div class="navigation">
+                    <button id="prevBtn" class="btn btn-secondary" disabled>ย้อนกลับ</button>
+                    <button id="nextBtn" class="btn btn-primary">ถัดไป</button>
+                    <button id="submitBtn" class="btn btn-success" style="display: none;">ส่งคำตอบ</button>
+                </div>
+
+                <div class="question-grid">
+                    <h4>แผนที่ข้อสอบ:</h4>
+                    <div id="questionGrid" class="grid"></div>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="resultScreen" class="screen">
+                <div class="result-content">
+                    <h3>ผลการสอบ</h3>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="scorePercentage">0%</span>
+                        </div>
+                        <div class="score-details">
+                            <p>คะแนนที่ได้: <span id="correctAnswers">0</span>/<span id="totalQuestions">50</span></p>
+                            <p>เปอร์เซ็นต์: <span id="percentage">0</span>%</p>
+                            <p class="result-status" id="resultStatus">ไม่ผ่าน</p>
+                        </div>
+                    </div>
+                    <button id="reviewAnswers" class="btn btn-primary">ทบทวนคำตอบ</button>
+                    <button id="retakeExam" class="btn btn-secondary">สอบใหม่</button>
+                </div>
+            </div>
+
+            <!-- Review Screen -->
+            <div id="reviewScreen" class="screen">
+                <div class="review-header">
+                    <h3>ทบทวนคำตอบ</h3>
+                    <button id="backToResult" class="btn btn-secondary">กลับไปผลสอบ</button>
+                </div>
+                <div id="reviewContent" class="review-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 ระบบสอบออนไลน์ Data Communication & Networking</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
